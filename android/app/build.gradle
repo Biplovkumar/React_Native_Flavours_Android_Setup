@@ -1,9 +1,8 @@
 apply plugin: "com.android.application"
 apply plugin: "com.facebook.react"
-
+apply plugin: 'com.google.gms.google-services'
 
 project.ext.envConfigFiles = [
-   dev: ".env.dev",
    prod: ".env.prod",
    qa: ".env.qa",
 ]
