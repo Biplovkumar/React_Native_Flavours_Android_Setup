@@ -98,15 +98,25 @@ Good to go.
 # Ref Links
 
 https://www.youtube.com/watch?v=x6lCIYw1W5c
+
 https://www.npmjs.com/package/react-native-config
+
 https://www.youtube.com/watch?v=8lA0wP-0vEo
+
 https://www.youtube.com/watch?v=TvBm7UZNyy8
+
 https://blog.logicwind.com/multiple-flavor-react-native-app/
+
 https://dev.to/leon_arantes/react-native-multiple-environments-setup-schemaflavors-3l7p
+
 https://www.youtube.com/watch?v=gWELlncvISo
+
 https://www.youtube.com/watch?v=CnLbSLMRbOQ
+
 https://medium.com/@ywongcode/building-multiple-versions-of-a-react-native-app-4361252ddde5
+
 https://medium.com/simform-engineering/how-to-set-up-different-environments-in-react-native-9f7902ebf282
+
 
 
 
