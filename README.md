@@ -1,4 +1,4 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli). And I have Installed (https://github.com/luggit/react-native-config). Created with multiple environment and flavours in one application.
 
 # Getting Started
 
@@ -61,8 +61,54 @@ You've successfully run and modified your React Native App. :partying_face:
 
 ### Now what?
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+1. Install react-native-config from https://github.com/luggit/react-native-config
+2. Add apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle" in 2 nd line of android/app/build.gradle
+3. Create .env & .env.prod file in root folder
+4. Declare variable in ".env & .env.prod"
+
+API_URL=https://myapi.com
+
+5. Get that variable in App.tsx with 
+
+import Config from 'react-native-config';
+console.log(Config.API_URL);
+
+
+6. Add script in Package.json file.
+
+    "start": "react-native start -- --reset-cache",
+    "android": "npx react-native run-android --mode=qaDebug --appIdSuffix=qa",
+    "runqa": "npx react-native run-android --mode=qaDebug --appIdSuffix=qa",
+    "runprod": "react-native run-android --mode=prodDebug",
+    "relqa": "cd android && ./gradlew assembleQaRelease && cd ..",
+    "relprod": "cd android && ./gradlew assembleProdRelease && cd ..",
+
+
+4. run yarn android
+5. Create QA and Prod Folder inside android/app
+6. Create fire base app and Inside that please add 2 google service JSON and respective folders.
+7. Please refer this repo for Adroid flavours.
+8. Change Name and Icon for QA and Prod
+9. Run qa and prod app
+
+Good to go.
+
+
+
+# Ref Links
+
+https://www.youtube.com/watch?v=x6lCIYw1W5c
+https://www.npmjs.com/package/react-native-config
+https://www.youtube.com/watch?v=8lA0wP-0vEo
+https://www.youtube.com/watch?v=TvBm7UZNyy8
+https://blog.logicwind.com/multiple-flavor-react-native-app/
+https://dev.to/leon_arantes/react-native-multiple-environments-setup-schemaflavors-3l7p
+https://www.youtube.com/watch?v=gWELlncvISo
+https://www.youtube.com/watch?v=CnLbSLMRbOQ
+https://medium.com/@ywongcode/building-multiple-versions-of-a-react-native-app-4361252ddde5
+https://medium.com/simform-engineering/how-to-set-up-different-environments-in-react-native-9f7902ebf282
+
+
 
 # Troubleshooting
 
