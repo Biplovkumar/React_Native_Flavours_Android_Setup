@@ -16,6 +16,7 @@ import {
   Text,
   useColorScheme,
   View,
+  LogBox
 } from 'react-native';
 
 import {
@@ -25,6 +26,8 @@ import {
 import Config from './src/utils/Config';
 import messaging from '@react-native-firebase/messaging';
 
+LogBox.ignoreLogs(['Usage of "messaging().registerDeviceForRemoteMessages()"'])
+
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -33,10 +36,10 @@ function App(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter
   };
 
-  useEffect(() => {
-      // The screen is focused
-      callApi()
-  }, []);
+
+
+
+
 
   useEffect(() => {
     //Only For Android
@@ -86,6 +89,11 @@ function App(): JSX.Element {
     initial();
   }, []);
 
+  useEffect(() => {
+    // The screen is focused
+      callApi() 
+}, []);
+
   const callApi = async () => {
     if (Platform.OS ===  'ios') {
       requestUserPermission();
@@ -110,9 +118,13 @@ function App(): JSX.Element {
       const authStatus = await messaging().requestPermission();
       await getToken();
       // console.log('AuthStatus:', authStatus)
-      // const enabled =
-      //   authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
-      //   authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+    //   const enabled =
+    //   authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+    //   authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+  
+    // if (enabled) {
+    //   console.log('Authorization status:', authStatus);
+    // }
     } catch (error) {
       console.log('messaging requestPermission', error);
     }
@@ -121,13 +133,11 @@ function App(): JSX.Element {
   const getToken = async () => {
     try {
       const token = await messaging().getToken();
-     console.log('====================================');
+     console.log('===============token=====================');
      console.log(token);
      console.log('====================================');
-      // onPressSubmit();
     } catch (error) {
-      console.log(error);
-      // onPressSubmit();
+      console.log('get Token error : ', error);
     }
   };
 
